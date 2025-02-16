@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map with Radius and Crime Rate</title>
+    <style>
+        *{
+            margin: 2px;
+        }
+        .container {
+            display: flex; 
+        }
+        #map {
+            flex: 1; /* Grow to take available space */
+            height: 800px;
+        }
+        #columnchart_material {
+            flex: 1; /* Grow to take available space */
+            height: 500px; /* Set height as desired */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="map"></div>
+        <div id="columnchart_material"></div>
+    </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {'packages':['bar']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Robery/Dacoity', 'Murder', 'Rape'],
+                ['2020', 15, 8, 2],
+                ['2021', 4, 3, 1],
+                ['2022', 5, 2, 0],
+                ['2023', 17, 5, 3]
+            ]);
+
+            var options = {
+                chart: {
+                    title: 'Crime rate in your area',
+                    subtitle: 'Robery/Dacoity, Murder, and Rape: 2020-2023',
+                }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+    </script>
+
+    <script>
+        function loadMapScenario() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLocation = new Microsoft.Maps.Location(position.coords.latitude, position.coords.longitude);
+                var map = new Microsoft.Maps.Map(document.getElementById("map"), {
+                    credentials: "AkK28CZEFJEWG5jSbjW7a9ysU4z2Y29Jqnqp_1lchCXuMDRPMSj1NMWVpUgN7j1S",
+                    center: userLocation,
+                    zoom: 12
+                });
+                var conditionValue = 70;
+                var redThreshold = 30;
+                var orangeThreshold = 60;
+                // user circle 
+                var radiusInMeters = 600;
+                var earthRadius = 6378137; 
+                var vertices = 360;
+                var polygonVertices = [];
+                for (var i = 0; i < vertices; i++) {
+                    var angle = (i / vertices) * 2 * Math.PI;
+                    var vertexLatitude = userLocation.latitude + (radiusInMeters / earthRadius) * (180 / Math.PI) * Math.sin(angle);
+                    var vertexLongitude = userLocation.longitude + (radiusInMeters / (earthRadius * Math.cos(userLocation.latitude * Math.PI / 180))) * (180 / Math.PI) * Math.cos(angle);
+                    polygonVertices.push(new Microsoft.Maps.Location(vertexLatitude, vertexLongitude));
+                }
+                var fillColor;
+                if (conditionValue < redThreshold) {
+                    fillColor = 'rgba(255, 0, 0, 0.3)'; 
+                } else if (conditionValue < orangeThreshold) {
+                    fillColor = 'rgba(255, 165, 0, 0.3)'; 
+                } else {
+                    fillColor = 'rgba(0, 128, 0, 0.3)'; 
+                }
+                var circlePolygon = new Microsoft.Maps.Polygon(polygonVertices, {
+                    fillColor: fillColor,
+                    strokeColor: fillColor,
+                    strokeThickness: 2
+                });
+                map.entities.push(circlePolygon);
+            });
+        }
+    </script>
+    <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?key=AkK28CZEFJEWG5jSbjW7a9ysU4z2Y29Jqnqp_1lchCXuMDRPMSj1NMWVpUgN7j1S&callback=loadMapScenario" async defer></script>
+</body>
+</html>

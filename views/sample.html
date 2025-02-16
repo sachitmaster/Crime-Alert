@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Content</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .content-item {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<body>
+
+    <h1>Add Content</h1>
+
+    <form id="contentForm">
+        <label for="heading">Heading:</label>
+        <input type="text" id="heading" required><br>
+        <label for="content">Content:</label>
+        <textarea id="content" required></textarea><br>
+        <button type="submit">Add Content</button>
+    </form>
+
+    <div id="contentContainer"></div>
+
+    <!-- <script>
+    document.getElementById('contentForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  var heading = document.getElementById('heading').value;
+  var content = document.getElementById('content').value;
+
+  if (heading.trim() !== '' && content.trim() !== '') {
+    var contentItem = document.createElement('div');
+    contentItem.classList.add('content-item');
+    contentItem.innerHTML = '<h2>' + heading + '</h2><p>' + content + '</p>';
+    document.getElementById('contentContainer').appendChild(contentItem);
+
+    // Clear input fields after submission
+    document.getElementById('heading').value = '';
+    document.getElementById('content').value = '';
+  } else {
+    alert('Please fill in both heading and content fields.');
+  }
+});
+
+</script> -->
+
+    <script>
+        // Function to load saved content from localStorage
+        function loadSavedContent() {
+            var savedContent = localStorage.getItem('savedContent');
+            if (savedContent) {
+                document.getElementById('contentContainer').innerHTML = savedContent;
+            }
+        }
+
+        // Function to save content to localStorage
+        function saveContentToLocalStorage() {
+            var contentContainer = document.getElementById('contentContainer').innerHTML;
+            localStorage.setItem('savedContent', contentContainer);
+        }
+
+        // Load saved content when the page loads
+        window.onload = loadSavedContent;
+
+        document.getElementById('contentForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var heading = document.getElementById('heading').value;
+            var content = document.getElementById('content').value;
+
+            if (heading.trim() !== '' && content.trim() !== '') {
+                var contentItem = document.createElement('div');
+                contentItem.classList.add('content-item');
+                contentItem.innerHTML = '<h2>' + heading + '</h2><p>' + content + '</p>';
+                document.getElementById('contentContainer').appendChild(contentItem);
+
+                // Save content to localStorage
+                saveContentToLocalStorage();
+
+                // Clear input fields after submission
+                document.getElementById('heading').value = '';
+                document.getElementById('content').value = '';
+            } else {
+                alert('Please fill in both heading and content fields.');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

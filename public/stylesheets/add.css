@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.create{
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    background-color: #2C303A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 90%;
+    height: 50vh;
+}
+
+input{
+    border-radius: 7px;
+    border: 1px solid #676D7D;
+    background: #414152;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+    height: 5vh;
+    color: white;
+}
+textarea{
+    background: #414152;
+    border: 1px solid #676D7D;
+    border-radius: 7px;
+    width: 90%;
+    height: 20vh;
+    margin-bottom: 1rem;
+    padding: 1rem 1rem;
+    color: white;
+}
+
+::placeholder{
+    color: white;
+}
+button{
+    border: none;
+    width: 30%;
+    height: 5vh;
+    background: #47CF73;
+    border-radius: 7px;
+    color: black;
+    font-weight: 700;
+}
+
+
+
+.input-container {
+    margin-top: 20px;
+}
+
+.input-container input, .input-container textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 5px;
+}
+
+.input-container button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.post {
+    margin-bottom: 20px;
+}

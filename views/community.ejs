@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/community.css">
+    <link rel="stylesheet" href="/stylesheets/add.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="left">
+            <img src="https://cdn0.iconfinder.com/data/icons/map-and-navigation-2-1/48/88-512.png" alt="" class="logo">
+            <h1 class="title">Crime Alert</h1>
+        </div>
+        <div class="right">
+            <!-- <a href="/add"><img src="../images/drone-surveillance-concept-illustration/add.svg" alt=""
+                    class="notify add"></a> -->
+            <img src="../images/drone-surveillance-concept-illustration/notifications-1.png" alt="" class="notify">
+        </div>
+    </div>
+    <div class="container1">
+        <div class="left-container">
+            <ul>
+                <li>
+                    <img src="../images/drone-surveillance-concept-illustration/home-icon-silhouette.svg" alt=""
+                        class="icon">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <img src="../images/drone-surveillance-concept-illustration/report.svg" alt="" class="icon">
+                    <a href="#">Crime Reporting</a>
+                </li>
+                <li>
+                    <img src="../images/drone-surveillance-concept-illustration/tips.svg" alt="" class="icon">
+                    <a href="#">Safty Tips</a>
+                </li>
+                <li>
+                    <img src="../images/drone-surveillance-concept-illustration/location-on-map.svg" alt=""
+                        class="icon">
+                    <a href="/map">Map</a>
+                </li>
+                <li>
+                    <img src="../images/drone-surveillance-concept-illustration/person-feedback.svg" alt=""
+                        class="icon">
+                    <a href="#">Feedback</a>
+                </li>
+            </ul>
+            <div class="create">
+                <h1>Add Content</h1>
+                <input type="text" id="headingInput" placeholder="Enter heading">
+                <textarea id="contentInput" placeholder="Enter content"></textarea>
+                <button onclick="addPost()">Add Post</button>
+            </div>
+        </div>
+        <div class="right-container">
+                <div class="content">
+                    <div id="contentContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"
+        integrity="sha512-VJ/iYbiu1eJ6yLimfTi65t2R9TFcG5D9X8ZCfbbEFhTfPnKJh8byoKXEawi5ScJZBYL1eiirL1+MczZDx0Tz9Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"
+        integrity="sha512-0bHMhYsdpiur1bT84kDH4D7cpxFQ9O7uA5yxVAqWC87h552Xt0swX4M+ZlXMKE8oPVRIJ5lAwXWO2UWeDwJJOw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"
+        integrity="sha512-EZI2cBcGPnmR89wTgVnN3602Yyi7muWo8y1B3a8WmIv1J9tYG+udH4LvmYjLiGp37yHB7FfaPBo8ly178m9g4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
+        integrity="sha512-OzC82YiH3UmMMs6Ydd9f2i7mS+UFL5f977iIoJ6oy07AJT+ePds9QOEtqXztSH29Nzua59fYS36knmMcv79GOg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../javascripts/community.js"></script>
+    <script src="../javascripts/add.js"></script>
+</body>
+
+</html>
