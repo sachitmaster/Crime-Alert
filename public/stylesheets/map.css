@@ -57,6 +57,10 @@ a:hover{
     opacity: 1;
 }
 
+.opts{
+    margin-left: 1.5rem;
+}
+
 #right {
     /* border: 2px solid blue; */
     width: 95%;
@@ -70,10 +74,11 @@ iframe {
 
 .container {
     display: flex; 
+    height: 100vh;
 }
 #map {
     flex: 1; /* Grow to take available space */
-    height: 800px;
+    height: 100vh;
 }
 #columnchart_material {
     flex: 1; /* Grow to take available space */

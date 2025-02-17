@@ -241,8 +241,8 @@ a:hover {
 }
 .period{
     position: absolute;
-    top: 398px;
-    left: 163px;
+    top: 470px;
+    left: 170px;
 }
 .price2{
     color: white;
@@ -250,8 +250,8 @@ a:hover {
 }
 .period2{
     position: absolute;
-    top: 398px;
-    left: 665px;
+    top: 470px;
+    left: 800px;
 }
 .price3{
     color: white;
@@ -259,8 +259,8 @@ a:hover {
 }
 .period3{
     position: absolute;
-    top: 870px;
-    left: 163px;
+    top: 1010px;
+    left: 170px;
 }
 .price4{
     color: white;
@@ -268,8 +268,8 @@ a:hover {
 }
 .period4{
     position: absolute;
-    top: 870px;
-    left: 665px;
+    top: 1010px;
+    left: 800px;
 }
 .like {
     filter: invert(1);

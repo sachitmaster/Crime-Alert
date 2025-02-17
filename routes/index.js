@@ -11,11 +11,11 @@ router.get('/', function (req, res) {
   res.render('index');
 });
 
-router.get('/map', function (req, res) {
+router.get('/map', isLoggedIn, function (req, res) {
   res.render('map');
 });
 
-router.get('/community',  function (req, res) {
+router.get('/community', isLoggedIn, function (req, res) {
   res.render('community');
 });
 
@@ -27,7 +27,7 @@ router.get('/login', function (req, res) {
   res.render('login');
 });
 
-router.get('/hotel', function (req, res) {
+router.get('/hotel', isLoggedIn, function (req, res) {
   res.render('hotel');
 });
 

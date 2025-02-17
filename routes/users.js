@@ -17,6 +17,7 @@ const userSchema =  mongoose.Schema({
     ref: 'Post'
   }],
   password: {
+    
     type: String,
   },
 });
